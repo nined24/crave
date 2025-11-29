@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crave - Gourmet Cakes & Cookies</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="index.html" class="nav-link active">HOME</a>
+                <a href="#about" class="nav-link">ABOUT</a>
+                <div class="dropdown">
+                    <a href="#categories" class="nav-link dropdown-toggle">CATEGORIES</a>
+                    <div class="dropdown-menu">
+                        <a href="#categories" data-category="cakes">Cakes</a>
+                        <a href="#categories" data-category="cookies">Cookies</a>
+                        <a href="#categories" data-category="chocolates">Chocolates</a>
+                    </div>
+                </div>
+                <a href="shop.html" class="nav-link">SHOP</a>
+                <button class="icon-btn nav-icon" id="searchBtn" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <span class="icon-label">Search</span>
+                </button>
+                <button class="icon-btn nav-icon" id="cartBtn" aria-label="Cart">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                    <span class="icon-label">Cart</span>
+                </button>
+            </div>
+            <div class="nav-right">
+                <div class="logo">
+                    <div class="logo-text">
+                        <span class="logo-c">C</span>rav<span class="logo-e">é</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-logo">
+                <img src="logo.png" alt="Crave Logo" class="hero-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="hero-logo-text" style="display: none;">
+                    <span class="hero-logo-c">C</span>rav<span class="hero-logo-e">é</span>
+                </div>
+            </div>
+            <h1 class="hero-title">Eat Once, Crave Forever</h1>
+            <p class="hero-subtitle">Tasty treats & Premium Quality Baked Goods</p>
+            <button class="cta-button" id="shopNowBtn">SHOP NOW</button>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <h2 class="section-title">Browse by Category</h2>
+            <div class="categories-grid">
+                <div class="category-card" data-category="cakes">
+                    <div class="category-icon">🎂</div>
+                    <h3>Cakes</h3>
+                </div>
+                <div class="category-card" data-category="cookies">
+                    <div class="category-icon">🍪</div>
+                    <h3>Cookies</h3>
+                </div>
+                <div class="category-card" data-category="chocolates">
+                    <div class="category-icon">🍫</div>
+                    <h3>Chocolates</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="menu">
+        <div class="container">
+            <h2 class="section-title">Our Specialties</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-placeholder">🍪</div>
+                    </div>
+                    <h3>Chocolate Chip Cookies</h3>
+                    <p>Handcrafted with premium chocolate chunks</p>
+                    <span class="price">₹999</span>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-placeholder">🍰</div>
+                    </div>
+                    <h3>Plum Cake</h3>
+                    <p>Fresh plums baked in golden batter</p>
+                    <span class="price">₹1,999</span>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-placeholder">🍫</div>
+                    </div>
+                    <h3>Gourmet Chocolates</h3>
+                    <p>Artisan truffles and premium chocolate bars</p>
+                    <span class="price">₹1,199</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Releases Section -->
+    <section class="products latest-releases" id="latest">
+        <div class="container">
+            <h2 class="section-title">Latest Releases</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-placeholder">🍫</div>
+                    </div>
+                    <h3>Gourmet Chocolates</h3>
+                    <p>Artisan truffles and premium chocolate bars</p>
+                    <span class="price">₹1,299</span>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-placeholder">🍪</div>
+                    </div>
+                    <h3>Oatmeal Cookies</h3>
+                    <p>Wholesome and hearty, made with love</p>
+                    <span class="price">₹899</span>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-placeholder">🎂</div>
+                    </div>
+                    <h3>Custom Cakes</h3>
+                    <p>Personalized cakes for every occasion</p>
+                    <span class="price">From ₹2,999</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <h2 class="section-title">About CRAVÉ</h2>
+                <p>We are passionate bakers dedicated to creating the finest gourmet baked goods. Every cookie, cake, and confection is crafted with premium ingredients and a touch of love. Experience the difference that quality and care make in every bite.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><span class="logo-c">C</span>rav<span class="logo-e">é</span></h3>
+                    <p>Gourmet Baked Goods</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#">Instagram</a>
+                        <a href="#">Facebook</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 CRAVÉ. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Search Modal -->
+    <div class="modal" id="searchModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Search Products</h2>
+            <input type="text" placeholder="Search for cakes, cookies, chocolates..." id="searchInput">
+            <div id="searchResults"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
