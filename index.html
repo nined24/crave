@@ -11,6 +11,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Delivery Banner -->
+    <div class="delivery-banner">
+        DELIVERING ALL OVER MUMBAI
+    </div>
+    
     <!-- Navigation Bar -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -20,19 +25,16 @@
                 <div class="dropdown">
                     <a href="#categories" class="nav-link dropdown-toggle">CATEGORIES</a>
                     <div class="dropdown-menu">
-                        <a href="#categories" data-category="cakes">Cakes</a>
-                        <a href="#categories" data-category="cookies">Cookies</a>
+                        <a href="#categories" data-category="sandwiches">Sandwiches</a>
+                        <a href="#categories" data-category="granolas">Granolas</a>
                         <a href="#categories" data-category="chocolates">Chocolates</a>
+                        <a href="#categories" data-category="cakes">Cakes</a>
+                        <a href="#categories" data-category="cheesecakes">Cheesecakes</a>
+                        <a href="#categories" data-category="special">Special Edition</a>
                     </div>
                 </div>
                 <a href="shop.html" class="nav-link">SHOP</a>
-                <button class="icon-btn nav-icon" id="searchBtn" aria-label="Search">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <path d="m21 21-4.35-4.35"></path>
-                    </svg>
-                    <span class="icon-label">Search</span>
-                </button>
+
                 <button class="icon-btn nav-icon" id="cartBtn" aria-label="Cart">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
@@ -48,6 +50,13 @@
                         <span class="logo-c">C</span>rav<span class="logo-e">é</span>
                     </div>
                 </div>
+                <a href="login.html" class="nav-link" style="margin-left: 2rem;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 0.5rem;">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    Login
+                </a>
             </div>
         </div>
         <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
@@ -78,17 +87,29 @@
         <div class="container">
             <h2 class="section-title">Browse by Category</h2>
             <div class="categories-grid">
-                <div class="category-card" data-category="cakes">
-                    <div class="category-icon">🎂</div>
-                    <h3>Cakes</h3>
+                <div class="category-card" data-category="sandwiches">
+                    <div class="category-icon">🥪</div>
+                    <h3>Sandwiches</h3>
                 </div>
-                <div class="category-card" data-category="cookies">
-                    <div class="category-icon">🍪</div>
-                    <h3>Cookies</h3>
+                <div class="category-card" data-category="granolas">
+                    <div class="category-icon">🥣</div>
+                    <h3>Granolas</h3>
                 </div>
                 <div class="category-card" data-category="chocolates">
                     <div class="category-icon">🍫</div>
                     <h3>Chocolates</h3>
+                </div>
+                <div class="category-card" data-category="cakes">
+                    <div class="category-icon">🎂</div>
+                    <h3>Cakes</h3>
+                </div>
+                <div class="category-card" data-category="cheesecakes">
+                    <div class="category-icon">🧀</div>
+                    <h3>Cheesecakes</h3>
+                </div>
+                <div class="category-card" data-category="special">
+                    <div class="category-icon">⭐</div>
+                    <h3>Special Edition</h3>
                 </div>
             </div>
         </div>
@@ -98,63 +119,193 @@
     <section class="products" id="menu">
         <div class="container">
             <h2 class="section-title">Our Specialties</h2>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="product-placeholder">🍪</div>
+            
+            <!-- Sandwiches -->
+            <div class="product-category-section" data-category="sandwiches">
+                <h3 class="category-heading">Sandwiches</h3>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-placeholder">🥪</div>
+                        </div>
+                        <h3>Nutella Sandwich</h3>
+                        <p>Delicious Nutella filled sandwich</p>
+                        <span class="price">₹75</span>
                     </div>
-                    <h3>Chocolate Chip Cookies</h3>
-                    <p>Handcrafted with premium chocolate chunks</p>
-                    <span class="price">₹999</span>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="product-placeholder">🍰</div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-placeholder">🥪</div>
+                        </div>
+                        <h3>Chocolate Sandwich</h3>
+                        <p>Rich chocolate filled sandwich</p>
+                        <span class="price">₹60</span>
                     </div>
-                    <h3>Plum Cake</h3>
-                    <p>Fresh plums baked in golden batter</p>
-                    <span class="price">₹1,999</span>
-                </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="product-placeholder">🍫</div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-placeholder">🥪</div>
+                        </div>
+                        <h3>Caramel Sandwich</h3>
+                        <p>Sweet caramel filled sandwich</p>
+                        <span class="price">₹75</span>
                     </div>
-                    <h3>Gourmet Chocolates</h3>
-                    <p>Artisan truffles and premium chocolate bars</p>
-                    <span class="price">₹1,199</span>
+
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Latest Releases Section -->
-    <section class="products latest-releases" id="latest">
-        <div class="container">
-            <h2 class="section-title">Latest Releases</h2>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="product-placeholder">🍫</div>
+            <!-- Granolas -->
+            <div class="product-category-section" data-category="granolas" style="margin-top: 4rem;">
+                <h3 class="category-heading">Granolas</h3>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-placeholder">🥣</div>
+                        </div>
+                        <h3>Rolled Oats Granola with Honey</h3>
+                        <p>Premium granola with natural honey</p>
+                        <span class="price">₹1,600/kg</span>
                     </div>
-                    <h3>Gourmet Chocolates</h3>
-                    <p>Artisan truffles and premium chocolate bars</p>
-                    <span class="price">₹1,299</span>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-placeholder">🥣</div>
+                        </div>
+                        <h3>Rolled Oats Chocolate Granola</h3>
+                        <p>Chocolate infused granola</p>
+                        <span class="price">₹1,600/kg</span>
+                    </div>
+
                 </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="product-placeholder">🍪</div>
+            </div>
+
+            <!-- Chocolates -->
+            <div class="product-category-section" data-category="chocolates" style="margin-top: 4rem;">
+                <h3 class="category-heading">Chocolates</h3>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-placeholder">🍫</div>
+                        </div>
+                        <h3>Dutch Truffle ⭐</h3>
+                        <p>Best pick - Rich Dutch chocolate truffle</p>
+                        <span class="price">Price on request</span>
                     </div>
-                    <h3>Oatmeal Cookies</h3>
-                    <p>Wholesome and hearty, made with love</p>
-                    <span class="price">₹899</span>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-placeholder">🍫</div>
+                        </div>
+                        <h3>Chocolate Orange ⭐</h3>
+                        <p>Best pick - Orange infused chocolate</p>
+                        <span class="price">Price on request</span>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-placeholder">🍫</div>
+                        </div>
+                        <h3>Chocolate Hazelnut</h3>
+                        <p>Premium hazelnut chocolate</p>
+                        <span class="price">Price on request</span>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-placeholder">🍫</div>
+                        </div>
+                        <h3>Chocolate Chip</h3>
+                        <p>Classic chocolate chip</p>
+                        <span class="price">Price on request</span>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-placeholder">🍫</div>
+                        </div>
+                        <h3>Black Forest</h3>
+                        <p>Rich black forest chocolate</p>
+                        <span class="price">Price on request</span>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-placeholder">🍫</div>
+                        </div>
+                        <h3>Coffee Chocolate</h3>
+                        <p>Coffee infused chocolate</p>
+                        <span class="price">Price on request</span>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-placeholder">🍫</div>
+                        </div>
+                        <h3>Chocolate Mousse ⭐</h3>
+                        <p>Best pick - Creamy chocolate mousse</p>
+                        <span class="price">Price on request</span>
+                    </div>
                 </div>
-                <div class="product-card">
-                    <div class="product-image">
-                        <div class="product-placeholder">🎂</div>
+            </div>
+
+            <!-- Cakes -->
+            <div class="product-category-section" data-category="cakes" style="margin-top: 4rem;">
+                <h3 class="category-heading">Cakes</h3>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-placeholder">🎂</div>
+                        </div>
+                        <h3>Butterscotch Cake</h3>
+                        <p>Classic butterscotch flavor</p>
+                        <span class="price">Price on request</span>
                     </div>
-                    <h3>Custom Cakes</h3>
-                    <p>Personalized cakes for every occasion</p>
-                    <span class="price">From ₹2,999</span>
+
+                </div>
+            </div>
+
+            <!-- Cheesecakes -->
+            <div class="product-category-section" data-category="cheesecakes" style="margin-top: 4rem;">
+                <h3 class="category-heading">Cheesecakes with Biscuit Base</h3>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-placeholder">🧀</div>
+                        </div>
+                        <h3>Blueberry Cheesecake</h3>
+                        <p>Blueberry on biscuit base</p>
+                        <span class="price">Price on request</span>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-placeholder">🧀</div>
+                        </div>
+                        <h3>Strawberry Cheesecake</h3>
+                        <p>Strawberry on biscuit base</p>
+                        <span class="price">Price on request</span>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-placeholder">🧀</div>
+                        </div>
+                        <h3>Lotus Biscoff Cheesecake</h3>
+                        <p>Lotus Biscoff on biscuit base</p>
+                        <span class="price">Price on request</span>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-placeholder">🧀</div>
+                        </div>
+                        <h3>Caramel Cheesecake</h3>
+                        <p>Caramel on biscuit base</p>
+                        <span class="price">Price on request</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Special Edition -->
+            <div class="product-category-section" data-category="special" style="margin-top: 4rem;">
+                <h3 class="category-heading">Special Edition</h3>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-placeholder">⭐</div>
+                        </div>
+                        <h3>Eggless Tiramisu with Ladyfinger</h3>
+                        <p>Premium eggless tiramisu</p>
+                        <span class="price">Price on request</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -178,14 +329,7 @@
                     <h3><span class="logo-c">C</span>rav<span class="logo-e">é</span></h3>
                     <p>Gourmet Baked Goods</p>
                 </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#menu">Menu</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
+
                 <div class="footer-section">
                     <h4>Follow Us</h4>
                     <div class="social-links">
@@ -196,7 +340,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 CRAVÉ. All rights reserved.</p>
+                <p>&copy; 2026 CRAVÉ. All rights reserved.</p>
             </div>
         </div>
     </footer>

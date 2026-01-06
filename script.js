@@ -16,6 +16,64 @@ if (mobileMenuBtn) {
     });
 }
 
+// Mobile cart/login logic
+function updateMobileNavbar() {
+    const navRight = document.querySelector('.nav-right');
+    const existingMobileCartLogin = document.querySelector('.mobile-cart-login');
+
+    if (existingMobileCartLogin) {
+        existingMobileCartLogin.remove();
+    }
+
+    const mobileCartLogin = document.createElement('div');
+    mobileCartLogin.className = 'mobile-cart-login';
+
+    // Check if user is logged in (using localStorage as per login.js)
+    const userEmail = localStorage.getItem('userEmail');
+
+    if (userEmail) {
+        // Show cart button
+        const cartBtn = document.createElement('button');
+        cartBtn.className = 'icon-btn';
+        cartBtn.innerHTML = `
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+        `;
+        cartBtn.addEventListener('click', () => {
+            window.location.href = 'shop.html';
+        });
+        mobileCartLogin.appendChild(cartBtn);
+    } else {
+        // Show login link
+        const loginLink = document.createElement('a');
+        loginLink.href = 'login.html';
+        loginLink.className = 'nav-link';
+        loginLink.innerHTML = `
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 0.5rem;">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            Login
+        `;
+        mobileCartLogin.appendChild(loginLink);
+    }
+
+    navRight.appendChild(mobileCartLogin);
+}
+
+// Initialize mobile navbar on page load
+updateMobileNavbar();
+
+// Update mobile navbar when login state changes
+window.addEventListener('storage', (e) => {
+    if (e.key === 'userEmail') {
+        updateMobileNavbar();
+    }
+});
+
 // Close mobile menu when clicking outside
 document.addEventListener('click', (e) => {
     if (navbar.classList.contains('mobile-open') && 
@@ -46,19 +104,21 @@ document.querySelectorAll('.dropdown-menu a[data-category]').forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
         const category = link.getAttribute('data-category');
-        const categoriesSection = document.getElementById('categories');
-        if (categoriesSection) {
-            categoriesSection.scrollIntoView({ behavior: 'smooth' });
-            // Highlight the category card
+        const menuSection = document.getElementById('menu');
+        if (menuSection) {
+            menuSection.scrollIntoView({ behavior: 'smooth' });
+            // Scroll to specific category section
             setTimeout(() => {
-                const categoryCard = document.querySelector(`.category-card[data-category="${category}"]`);
-                if (categoryCard) {
-                    categoryCard.style.border = '2px solid var(--primary-gold)';
-                    categoryCard.style.transform = 'scale(1.05)';
+                const categorySection = document.querySelector(`.product-category-section[data-category="${category}"]`);
+                if (categorySection) {
+                    categorySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    categorySection.style.border = '3px solid var(--gold-yellow)';
+                    categorySection.style.borderRadius = '8px';
+                    categorySection.style.padding = '2rem';
                     setTimeout(() => {
-                        categoryCard.style.border = '';
-                        categoryCard.style.transform = '';
-                    }, 2000);
+                        categorySection.style.border = '';
+                        categorySection.style.padding = '';
+                    }, 3000);
                 }
             }, 500);
         }
@@ -73,19 +133,19 @@ document.querySelectorAll('.category-card').forEach(card => {
         const menuSection = document.getElementById('menu');
         if (menuSection) {
             menuSection.scrollIntoView({ behavior: 'smooth' });
-            // Highlight products of selected category
+            // Scroll to specific category section
             setTimeout(() => {
-                document.querySelectorAll('.product-card').forEach(productCard => {
-                    const productName = productCard.querySelector('h3').textContent.toLowerCase();
-                    if (productName.includes(category.slice(0, -1))) {
-                        productCard.style.border = '2px solid var(--primary-gold)';
-                        productCard.style.transform = 'scale(1.02)';
-                        setTimeout(() => {
-                            productCard.style.border = '';
-                            productCard.style.transform = '';
-                        }, 2000);
-                    }
-                });
+                const categorySection = document.querySelector(`.product-category-section[data-category="${category}"]`);
+                if (categorySection) {
+                    categorySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    categorySection.style.border = '3px solid var(--gold-yellow)';
+                    categorySection.style.borderRadius = '8px';
+                    categorySection.style.padding = '2rem';
+                    setTimeout(() => {
+                        categorySection.style.border = '';
+                        categorySection.style.padding = '';
+                    }, 3000);
+                }
             }, 500);
         }
     });
@@ -119,12 +179,46 @@ window.addEventListener('click', (e) => {
 
 // Search functionality
 const products = [
-    { name: 'Chocolate Chip Cookies', category: 'cookies', price: '₹999' },
-    { name: 'Plum Cake', category: 'cakes', price: '₹1,999' },
-    { name: 'Gourmet Chocolates', category: 'chocolates', price: '₹1,199' },
-    { name: 'Gourmet Chocolates', category: 'chocolates', price: '₹1,299' },
-    { name: 'Oatmeal Cookies', category: 'cookies', price: '₹899' },
-    { name: 'Custom Cakes', category: 'cakes', price: 'From ₹2,999' }
+    // Sandwiches
+    { name: 'Nutella Sandwich', category: 'sandwiches', price: '₹75' },
+    { name: 'Chocolate Sandwich', category: 'sandwiches', price: '₹60' },
+    { name: 'Caramel Sandwich', category: 'sandwiches', price: '₹75' },
+    { name: 'Dulce de Leche', category: 'sandwiches', price: '₹90' },
+    // Granolas
+    { name: 'Rolled Oats Granola with Honey', category: 'granolas', price: '₹1,600/kg' },
+    { name: 'Rolled Oats Chocolate Granola', category: 'granolas', price: '₹1,600/kg' },
+    { name: 'Rolled Oats Chocolate Orange Granola', category: 'granolas', price: '₹1,800/kg' },
+    { name: 'Granola', category: 'granolas', price: '₹240' },
+    { name: 'Chocolate Granola', category: 'granolas', price: '₹240' },
+    { name: 'Orange Granola', category: 'granolas', price: '₹270' },
+    { name: 'Roasted Royal Crunch', category: 'granolas', price: '₹180' },
+    // Chocolates
+    { name: 'Dutch Truffle', category: 'chocolates', price: 'Price on request' },
+    { name: 'Chocolate Orange', category: 'chocolates', price: 'Price on request' },
+    { name: 'Chocolate Hazelnut', category: 'chocolates', price: 'Price on request' },
+    { name: 'Chocolate Chip', category: 'chocolates', price: 'Price on request' },
+    { name: 'Black Forest', category: 'chocolates', price: 'Price on request' },
+    { name: 'Coffee Chocolate', category: 'chocolates', price: 'Price on request' },
+    { name: 'Chocolate Mousse', category: 'chocolates', price: 'Price on request' },
+    // Cakes
+    { name: 'Butterscotch Cake', category: 'cakes', price: 'Price on request' },
+    { name: 'Pistachio Rose Cake', category: 'cakes', price: 'Price on request' },
+    { name: 'Blueberry Cream Cake', category: 'cakes', price: 'Price on request' },
+    { name: 'Strawberry Cream Cake', category: 'cakes', price: 'Price on request' },
+    { name: 'Mix Fruit Cake', category: 'cakes', price: 'Price on request' },
+    { name: 'Ras Malai Cake', category: 'cakes', price: 'Price on request' },
+    { name: 'Lotus Biscoff Cake', category: 'cakes', price: 'Price on request' },
+    { name: 'Cream Cheese Flavour', category: 'cakes', price: 'Price on request' },
+    { name: 'Red Velvet Cake', category: 'cakes', price: 'Price on request' },
+    { name: 'Blueberry Cake', category: 'cakes', price: 'Price on request' },
+    { name: 'Strawberry Cake', category: 'cakes', price: 'Price on request' },
+    // Cheesecakes
+    { name: 'Blueberry Cheesecake', category: 'cheesecakes', price: 'Price on request' },
+    { name: 'Strawberry Cheesecake', category: 'cheesecakes', price: 'Price on request' },
+    { name: 'Lotus Biscoff Cheesecake', category: 'cheesecakes', price: 'Price on request' },
+    { name: 'Caramel Cheesecake', category: 'cheesecakes', price: 'Price on request' },
+    // Special
+    { name: 'Eggless Tiramisu with Ladyfinger', category: 'special', price: 'Price on request' }
 ];
 
 searchInput.addEventListener('input', (e) => {
