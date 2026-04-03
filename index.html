@@ -19,30 +19,24 @@
     <!-- Navigation Bar -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <div class="nav-left">
                 <a href="index.html" class="nav-link active">HOME</a>
                 <a href="#about" class="nav-link">ABOUT</a>
                 <div class="dropdown">
-                    <a href="#categories" class="nav-link dropdown-toggle">CATEGORIES</a>
+                    <a href="shop.html" class="nav-link dropdown-toggle">CATEGORIES</a>
                     <div class="dropdown-menu">
-                        <a href="#categories" data-category="sandwiches">Sandwiches</a>
-                        <a href="#categories" data-category="granolas">Granolas</a>
-                        <a href="#categories" data-category="chocolates">Chocolates</a>
-                        <a href="#categories" data-category="cakes">Cakes</a>
-                        <a href="#categories" data-category="cheesecakes">Cheesecakes</a>
-                        <a href="#categories" data-category="special">Special Edition</a>
+                        <a href="shop.html?category=sandwiches" data-category="sandwiches">Sandwiches</a>
+                        <a href="shop.html?category=granolas" data-category="granolas">Granolas</a>
+                        <a href="shop.html?category=cookies" data-category="cookies">Cookies</a>
+                        <a href="shop.html?category=cakes" data-category="cakes">Cakes</a>
                     </div>
                 </div>
                 <a href="shop.html" class="nav-link">SHOP</a>
-
-                <button class="icon-btn nav-icon" id="cartBtn" aria-label="Cart">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                    </svg>
-                    <span class="icon-label">Cart</span>
-                </button>
             </div>
             <div class="nav-right">
                 <div class="logo">
@@ -50,20 +44,24 @@
                         <span class="logo-c">C</span>rav<span class="logo-e">é</span>
                     </div>
                 </div>
-                <a href="login.html" class="nav-link" style="margin-left: 2rem;">
+            </div>
+            <div class="nav-actions">
+                <button class="icon-btn nav-icon mobile-cart-btn" id="cartBtn" aria-label="Cart" style="display: none;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                </button>
+                <a href="login.html" class="nav-link mobile-login-btn" id="loginLink">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 0.5rem;">
                         <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                         <circle cx="12" cy="7" r="4"></circle>
                     </svg>
-                    Login
+                    <span class="login-text">Login</span>
                 </a>
             </div>
         </div>
-        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
     </nav>
 
     <!-- Hero Section -->
@@ -76,8 +74,8 @@
                     <span class="hero-logo-c">C</span>rav<span class="hero-logo-e">é</span>
                 </div>
             </div>
-            <h1 class="hero-title">Eat Once, Crave Forever</h1>
-            <p class="hero-subtitle">Tasty treats & Premium Quality Baked Goods</p>
+            <h1 class="hero-title">Homemade Tasty Treats</h1>
+            <p class="hero-subtitle">Eat Once, Crave Forever • Premium Quality Baked Goods</p>
             <button class="cta-button" id="shopNowBtn">SHOP NOW</button>
         </div>
     </section>
@@ -95,21 +93,13 @@
                     <div class="category-icon">🥣</div>
                     <h3>Granolas</h3>
                 </div>
-                <div class="category-card" data-category="chocolates">
-                    <div class="category-icon">🍫</div>
-                    <h3>Chocolates</h3>
+                <div class="category-card" data-category="cookies">
+                    <div class="category-icon">🍪</div>
+                    <h3>Cookies</h3>
                 </div>
                 <div class="category-card" data-category="cakes">
                     <div class="category-icon">🎂</div>
                     <h3>Cakes</h3>
-                </div>
-                <div class="category-card" data-category="cheesecakes">
-                    <div class="category-icon">🧀</div>
-                    <h3>Cheesecakes</h3>
-                </div>
-                <div class="category-card" data-category="special">
-                    <div class="category-icon">⭐</div>
-                    <h3>Special Edition</h3>
                 </div>
             </div>
         </div>
@@ -148,7 +138,14 @@
                         <p>Sweet caramel filled sandwich</p>
                         <span class="price">₹75</span>
                     </div>
-
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-placeholder">🥪</div>
+                        </div>
+                        <h3>Dulce de Leche</h3>
+                        <p>Traditional caramel milk spread</p>
+                        <span class="price">₹90</span>
+                    </div>
                 </div>
             </div>
 
@@ -172,7 +169,14 @@
                         <p>Chocolate infused granola</p>
                         <span class="price">₹1,600/kg</span>
                     </div>
-
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-placeholder">🥣</div>
+                        </div>
+                        <h3>Rolled Oats Chocolate Orange Granola</h3>
+                        <p>Chocolate and orange flavored granola</p>
+                        <span class="price">₹1,800/kg</span>
+                    </div>
                 </div>
             </div>
 
@@ -200,38 +204,6 @@
                         <div class="product-image">
                             <div class="product-placeholder">🍫</div>
                         </div>
-                        <h3>Chocolate Hazelnut</h3>
-                        <p>Premium hazelnut chocolate</p>
-                        <span class="price">Price on request</span>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image">
-                            <div class="product-placeholder">🍫</div>
-                        </div>
-                        <h3>Chocolate Chip</h3>
-                        <p>Classic chocolate chip</p>
-                        <span class="price">Price on request</span>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image">
-                            <div class="product-placeholder">🍫</div>
-                        </div>
-                        <h3>Black Forest</h3>
-                        <p>Rich black forest chocolate</p>
-                        <span class="price">Price on request</span>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image">
-                            <div class="product-placeholder">🍫</div>
-                        </div>
-                        <h3>Coffee Chocolate</h3>
-                        <p>Coffee infused chocolate</p>
-                        <span class="price">Price on request</span>
-                    </div>
-                    <div class="product-card">
-                        <div class="product-image">
-                            <div class="product-placeholder">🍫</div>
-                        </div>
                         <h3>Chocolate Mousse ⭐</h3>
                         <p>Best pick - Creamy chocolate mousse</p>
                         <span class="price">Price on request</span>
@@ -251,7 +223,22 @@
                         <p>Classic butterscotch flavor</p>
                         <span class="price">Price on request</span>
                     </div>
-
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-placeholder">🎂</div>
+                        </div>
+                        <h3>Pistachio Rose Cake</h3>
+                        <p>Elegant pistachio and rose</p>
+                        <span class="price">Price on request</span>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <div class="product-placeholder">🎂</div>
+                        </div>
+                        <h3>Red Velvet Cake</h3>
+                        <p>Classic red velvet</p>
+                        <span class="price">Price on request</span>
+                    </div>
                 </div>
             </div>
 
@@ -293,20 +280,27 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Special Edition -->
-            <div class="product-category-section" data-category="special" style="margin-top: 4rem;">
-                <h3 class="category-heading">Special Edition</h3>
-                <div class="products-grid">
-                    <div class="product-card">
-                        <div class="product-image">
-                            <div class="product-placeholder">⭐</div>
-                        </div>
-                        <h3>Eggless Tiramisu with Ladyfinger</h3>
-                        <p>Premium eggless tiramisu</p>
-                        <span class="price">Price on request</span>
-                    </div>
-                </div>
+    <!-- Reels Section -->
+    <section class="reels" id="reels">
+        <div class="container">
+            <h2 class="section-title">Watch Our Reels</h2>
+            <p style="text-align:center; margin-top:-1.5rem; margin-bottom:2rem; opacity:0.85;">
+                Behind-the-scenes bakes, new drops, and cookie pulls you’ll love.
+            </p>
+            <div class="reels-grid">
+                <a class="reel-card" href="#" target="_blank" rel="noopener">Reel 1</a>
+                <a class="reel-card" href="#" target="_blank" rel="noopener">Reel 2</a>
+                <a class="reel-card" href="#" target="_blank" rel="noopener">Reel 3</a>
+                <a class="reel-card" href="#" target="_blank" rel="noopener">Reel 4</a>
+                <a class="reel-card" href="#" target="_blank" rel="noopener">Reel 5</a>
+                <a class="reel-card" href="#" target="_blank" rel="noopener">Reel 6</a>
+                <a class="reel-card" href="#" target="_blank" rel="noopener">Reel 7</a>
+                <a class="reel-card" href="#" target="_blank" rel="noopener">Reel 8</a>
+                <a class="reel-card" href="#" target="_blank" rel="noopener">Reel 9</a>
+                <a class="reel-card" href="#" target="_blank" rel="noopener">Reel 10</a>
             </div>
         </div>
     </section>
@@ -327,7 +321,7 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h3><span class="logo-c">C</span>rav<span class="logo-e">é</span></h3>
-                    <p>Gourmet Baked Goods</p>
+                    <p>Eat Once, Crave Forever</p>
                 </div>
 
                 <div class="footer-section">
@@ -345,15 +339,6 @@
         </div>
     </footer>
 
-    <!-- Search Modal -->
-    <div class="modal" id="searchModal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Search Products</h2>
-            <input type="text" placeholder="Search for cakes, cookies, chocolates..." id="searchInput">
-            <div id="searchResults"></div>
-        </div>
-    </div>
 
     <script src="script.js"></script>
 </body>

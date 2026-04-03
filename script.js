@@ -16,64 +16,6 @@ if (mobileMenuBtn) {
     });
 }
 
-// Mobile cart/login logic
-function updateMobileNavbar() {
-    const navRight = document.querySelector('.nav-right');
-    const existingMobileCartLogin = document.querySelector('.mobile-cart-login');
-
-    if (existingMobileCartLogin) {
-        existingMobileCartLogin.remove();
-    }
-
-    const mobileCartLogin = document.createElement('div');
-    mobileCartLogin.className = 'mobile-cart-login';
-
-    // Check if user is logged in (using localStorage as per login.js)
-    const userEmail = localStorage.getItem('userEmail');
-
-    if (userEmail) {
-        // Show cart button
-        const cartBtn = document.createElement('button');
-        cartBtn.className = 'icon-btn';
-        cartBtn.innerHTML = `
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <path d="M16 10a4 4 0 0 1-8 0"></path>
-            </svg>
-        `;
-        cartBtn.addEventListener('click', () => {
-            window.location.href = 'shop.html';
-        });
-        mobileCartLogin.appendChild(cartBtn);
-    } else {
-        // Show login link
-        const loginLink = document.createElement('a');
-        loginLink.href = 'login.html';
-        loginLink.className = 'nav-link';
-        loginLink.innerHTML = `
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 0.5rem;">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                <circle cx="12" cy="7" r="4"></circle>
-            </svg>
-            Login
-        `;
-        mobileCartLogin.appendChild(loginLink);
-    }
-
-    navRight.appendChild(mobileCartLogin);
-}
-
-// Initialize mobile navbar on page load
-updateMobileNavbar();
-
-// Update mobile navbar when login state changes
-window.addEventListener('storage', (e) => {
-    if (e.key === 'userEmail') {
-        updateMobileNavbar();
-    }
-});
-
 // Close mobile menu when clicking outside
 document.addEventListener('click', (e) => {
     if (navbar.classList.contains('mobile-open') && 
@@ -83,102 +25,72 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// Navigation smooth scroll
+// Check if user is logged in and show cart instead of login
+function updateNavbarForLogin() {
+    const isLoggedIn = localStorage.getItem('userEmail') !== null;
+    const cartBtn = document.getElementById('cartBtn');
+    const loginLink = document.getElementById('loginLink');
+    
+    if (isLoggedIn) {
+        if (cartBtn) cartBtn.style.display = 'flex';
+        if (loginLink) loginLink.style.display = 'none';
+    } else {
+        if (cartBtn) cartBtn.style.display = 'none';
+        if (loginLink) loginLink.style.display = 'flex';
+    }
+}
+
+// Call on page load
+updateNavbarForLogin();
+
+// Update navbar when login state changes
+window.addEventListener('storage', (e) => {
+    if (e.key === 'userEmail') {
+        updateNavbarForLogin();
+    }
+});
+
+// Also check on focus (when returning from login page)
+window.addEventListener('focus', updateNavbarForLogin);
+
+// Navigation smooth scroll (only for same-page anchors)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (!href || href === '#') return;
+        const target = document.querySelector(href);
+        if (!target) return;
+
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-            // Close mobile menu after navigation
+        target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+        });
+        if (navbar.classList.contains('mobile-open')) {
             navbar.classList.remove('mobile-open');
         }
     });
 });
 
-// Category dropdown functionality
+// Category dropdown functionality (redirect to shop page)
 document.querySelectorAll('.dropdown-menu a[data-category]').forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
         const category = link.getAttribute('data-category');
-        const menuSection = document.getElementById('menu');
-        if (menuSection) {
-            menuSection.scrollIntoView({ behavior: 'smooth' });
-            // Scroll to specific category section
-            setTimeout(() => {
-                const categorySection = document.querySelector(`.product-category-section[data-category="${category}"]`);
-                if (categorySection) {
-                    categorySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    categorySection.style.border = '3px solid var(--gold-yellow)';
-                    categorySection.style.borderRadius = '8px';
-                    categorySection.style.padding = '2rem';
-                    setTimeout(() => {
-                        categorySection.style.border = '';
-                        categorySection.style.padding = '';
-                    }, 3000);
-                }
-            }, 500);
-        }
-        navbar.classList.remove('mobile-open');
+        window.location.href = `shop.html?category=${encodeURIComponent(category)}`;
     });
 });
 
-// Category card click functionality
+// Category card click functionality (redirect to shop page)
 document.querySelectorAll('.category-card').forEach(card => {
     card.addEventListener('click', () => {
         const category = card.getAttribute('data-category');
-        const menuSection = document.getElementById('menu');
-        if (menuSection) {
-            menuSection.scrollIntoView({ behavior: 'smooth' });
-            // Scroll to specific category section
-            setTimeout(() => {
-                const categorySection = document.querySelector(`.product-category-section[data-category="${category}"]`);
-                if (categorySection) {
-                    categorySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    categorySection.style.border = '3px solid var(--gold-yellow)';
-                    categorySection.style.borderRadius = '8px';
-                    categorySection.style.padding = '2rem';
-                    setTimeout(() => {
-                        categorySection.style.border = '';
-                        categorySection.style.padding = '';
-                    }, 3000);
-                }
-            }, 500);
-        }
+        window.location.href = `shop.html?category=${encodeURIComponent(category)}`;
     });
 });
 
-// Search Modal
-const searchBtn = document.getElementById('searchBtn');
-const searchModal = document.getElementById('searchModal');
-const closeModal = document.querySelector('.close');
-const searchInput = document.getElementById('searchInput');
-const searchResults = document.getElementById('searchResults');
-
-searchBtn.addEventListener('click', () => {
-    searchModal.style.display = 'block';
-    searchInput.focus();
-});
-
-closeModal.addEventListener('click', () => {
-    searchModal.style.display = 'none';
-    searchInput.value = '';
-    searchResults.innerHTML = '';
-});
-
-window.addEventListener('click', (e) => {
-    if (e.target === searchModal) {
-        searchModal.style.display = 'none';
-        searchInput.value = '';
-        searchResults.innerHTML = '';
-    }
-});
-
-// Search functionality
-const products = [
+// Search functionality (only for shop page, removed from home)
+const searchProducts = [
     // Sandwiches
     { name: 'Nutella Sandwich', category: 'sandwiches', price: '₹75' },
     { name: 'Chocolate Sandwich', category: 'sandwiches', price: '₹60' },
@@ -201,6 +113,7 @@ const products = [
     { name: 'Coffee Chocolate', category: 'chocolates', price: 'Price on request' },
     { name: 'Chocolate Mousse', category: 'chocolates', price: 'Price on request' },
     // Cakes
+    { name: 'Butter Cake', category: 'cakes', price: 'Price on request' },
     { name: 'Butterscotch Cake', category: 'cakes', price: 'Price on request' },
     { name: 'Pistachio Rose Cake', category: 'cakes', price: 'Price on request' },
     { name: 'Blueberry Cream Cake', category: 'cakes', price: 'Price on request' },
@@ -221,60 +134,68 @@ const products = [
     { name: 'Eggless Tiramisu with Ladyfinger', category: 'special', price: 'Price on request' }
 ];
 
-searchInput.addEventListener('input', (e) => {
-    const query = e.target.value.toLowerCase().trim();
-    searchResults.innerHTML = '';
+// Search functionality only available on shop page
+const searchInput = document.getElementById('searchInput');
+const searchResults = document.getElementById('searchResults');
+if (searchInput && searchResults) {
+    searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        searchResults.innerHTML = '';
 
-    if (query.length === 0) return;
+        if (query.length === 0) return;
 
-    const filtered = products.filter(product => 
-        product.name.toLowerCase().includes(query) ||
-        product.category.toLowerCase().includes(query)
-    );
+        const filtered = searchProducts.filter(product => 
+            product.name.toLowerCase().includes(query) ||
+            product.category.toLowerCase().includes(query)
+        );
 
-    if (filtered.length === 0) {
-        searchResults.innerHTML = '<p style="color: #666; padding: 1rem;">No products found.</p>';
-        return;
-    }
+        if (filtered.length === 0) {
+            searchResults.innerHTML = '<p style="color: #666; padding: 1rem;">No products found.</p>';
+            return;
+        }
 
-    filtered.forEach(product => {
-        const resultItem = document.createElement('div');
-        resultItem.style.cssText = 'padding: 1rem; border-bottom: 1px solid #eee; cursor: pointer; transition: background 0.3s;';
-        resultItem.innerHTML = `
-            <h4 style="margin-bottom: 0.5rem; color: var(--dark-brown);">${product.name}</h4>
-            <p style="color: #666; margin: 0;">${product.price}</p>
-        `;
-        resultItem.addEventListener('mouseenter', () => {
-            resultItem.style.background = '#f5f5f5';
+        filtered.forEach(product => {
+            const resultItem = document.createElement('div');
+            resultItem.style.cssText = 'padding: 1rem; border-bottom: 1px solid #eee; cursor: pointer; transition: background 0.3s;';
+            resultItem.innerHTML = `
+                <h4 style="margin-bottom: 0.5rem; color: var(--dark-brown);">${product.name}</h4>
+                <p style="color: #666; margin: 0;">${product.price}</p>
+            `;
+            resultItem.addEventListener('mouseenter', () => {
+                resultItem.style.background = '#f5f5f5';
+            });
+            resultItem.addEventListener('mouseleave', () => {
+                resultItem.style.background = 'transparent';
+            });
+            resultItem.addEventListener('click', () => {
+                const menuSection = document.getElementById('menu');
+                if (menuSection) {
+                    menuSection.scrollIntoView({ behavior: 'smooth' });
+                    const searchModal = document.getElementById('searchModal');
+                    if (searchModal) searchModal.style.display = 'none';
+                }
+            });
+            searchResults.appendChild(resultItem);
         });
-        resultItem.addEventListener('mouseleave', () => {
-            resultItem.style.background = 'transparent';
-        });
-        resultItem.addEventListener('click', () => {
-            const menuSection = document.getElementById('menu');
-            if (menuSection) {
-                menuSection.scrollIntoView({ behavior: 'smooth' });
-                searchModal.style.display = 'none';
-            }
-        });
-        searchResults.appendChild(resultItem);
     });
-});
+}
 
-// Shop Now Button
+// Shop Now Button (go to shop page)
 const shopNowBtn = document.getElementById('shopNowBtn');
-shopNowBtn.addEventListener('click', () => {
-    const menuSection = document.getElementById('menu');
-    if (menuSection) {
-        menuSection.scrollIntoView({ behavior: 'smooth' });
-    }
-});
-
-// Cart Button (placeholder for index page)
-const cartBtn = document.getElementById('cartBtn');
-if (cartBtn && !document.getElementById('cartModal')) {
-    cartBtn.addEventListener('click', () => {
+if (shopNowBtn) {
+    shopNowBtn.addEventListener('click', () => {
         window.location.href = 'shop.html';
+    });
+}
+
+// Cart Button
+const cartBtn = document.getElementById('cartBtn');
+if (cartBtn) {
+    cartBtn.addEventListener('click', () => {
+        const isShopPage = window.location.pathname.toLowerCase().endsWith('/shop.html') || window.location.pathname.toLowerCase().endsWith('shop.html');
+        if (!isShopPage) {
+            window.location.href = 'shop.html';
+        }
     });
 }
 
@@ -331,4 +252,3 @@ document.querySelectorAll('.product-card, .about-content, .category-card').forEa
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     observer.observe(el);
 });
-

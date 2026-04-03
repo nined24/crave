@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification - Cravé</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        .auth-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 20px 40px;
+            background: var(--light-mint);
+        }
+
+        .auth-card {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            max-width: 450px;
+            width: 100%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .auth-logo {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .auth-logo .logo-text {
+            background: var(--light-pink);
+            padding: 0.8rem 1.5rem;
+            display: inline-block;
+            border-radius: 4px;
+        }
+
+        .auth-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--gold-yellow);
+            text-align: center;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        .auth-subtitle {
+            text-align: center;
+            color: var(--logo-brown);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        .otp-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .otp-input {
+            width: 50px;
+            height: 60px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            color: var(--logo-brown);
+            background: var(--light-mint);
+            transition: all 0.3s ease;
+        }
+
+        .otp-input:focus {
+            outline: none;
+            border-color: var(--gold-yellow);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+        }
+
+        .resend-otp {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: var(--logo-brown);
+            font-size: 0.9rem;
+        }
+
+        .resend-otp a {
+            color: var(--gold-yellow);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .resend-otp a:hover {
+            color: var(--logo-brown);
+            text-decoration: underline;
+        }
+
+        .auth-button {
+            width: 100%;
+            background: white;
+            color: var(--gold-yellow);
+            border: 2px solid var(--gold-yellow);
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+            margin-top: 1rem;
+        }
+
+        .auth-button:hover {
+            background: var(--gold-yellow);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .auth-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .back-home {
+            position: absolute;
+            top: 120px;
+            left: 20px;
+            color: var(--logo-brown);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 300;
+            transition: color 0.3s ease;
+            z-index: 10;
+        }
+
+        .back-home:hover {
+            color: var(--gold-yellow);
+        }
+
+        .timer {
+            text-align: center;
+            color: var(--logo-brown);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .auth-container {
+                padding: 100px 15px 30px;
+            }
+
+            .auth-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .auth-title {
+                font-size: 2rem;
+            }
+
+            .otp-input {
+                width: 45px;
+                height: 55px;
+                font-size: 1.3rem;
+            }
+
+            .back-home {
+                top: 100px;
+                left: 15px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Delivery Banner -->
+    <div class="delivery-banner">
+        DELIVERING ALL OVER MUMBAI
+    </div>
+
+    <a href="signup.html" class="back-home">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back
+    </a>
+
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-logo">
+                <div class="logo-text">
+                    <span class="logo-c">C</span>rav<span class="logo-e">é</span>
+                </div>
+            </div>
+            <h1 class="auth-title">Verify OTP</h1>
+            <p class="auth-subtitle">Enter the 6-digit OTP sent to your phone number</p>
+            
+            <form id="otpForm">
+                <div class="otp-container">
+                    <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" required>
+                    <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" required>
+                    <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" required>
+                    <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" required>
+                    <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" required>
+                    <input type="text" class="otp-input" maxlength="1" pattern="[0-9]" required>
+                </div>
+
+                <div class="timer" id="timer">
+                    Resend OTP in <span id="countdown">60</span> seconds
+                </div>
+
+                <div class="resend-otp" id="resendSection" style="display: none;">
+                    Didn't receive OTP? <a href="#" id="resendLink">Resend</a>
+                </div>
+                
+                <button type="submit" class="auth-button" id="verifyBtn">Verify OTP</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Auto-focus and move to next input
+        const otpInputs = document.querySelectorAll('.otp-input');
+        
+        otpInputs.forEach((input, index) => {
+            input.addEventListener('input', (e) => {
+                if (e.target.value && index < otpInputs.length - 1) {
+                    otpInputs[index + 1].focus();
+                }
+            });
+
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Backspace' && !e.target.value && index > 0) {
+                    otpInputs[index - 1].focus();
+                }
+            });
+
+            // Only allow numbers
+            input.addEventListener('keypress', (e) => {
+                if (!/[0-9]/.test(e.key)) {
+                    e.preventDefault();
+                }
+            });
+        });
+
+        // Timer countdown
+        let timeLeft = 60;
+        const countdownEl = document.getElementById('countdown');
+        const resendSection = document.getElementById('resendSection');
+        const timerEl = document.getElementById('timer');
+        const resendLink = document.getElementById('resendLink');
+
+        const countdown = setInterval(() => {
+            timeLeft--;
+            countdownEl.textContent = timeLeft;
+            
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                timerEl.style.display = 'none';
+                resendSection.style.display = 'block';
+            }
+        }, 1000);
+
+        resendLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Resend OTP logic here
+            alert('OTP has been resent to your phone number!');
+            timeLeft = 60;
+            timerEl.style.display = 'block';
+            resendSection.style.display = 'none';
+            countdownEl.textContent = timeLeft;
+            
+            const newCountdown = setInterval(() => {
+                timeLeft--;
+                countdownEl.textContent = timeLeft;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(newCountdown);
+                    timerEl.style.display = 'none';
+                    resendSection.style.display = 'block';
+                }
+            }, 1000);
+        });
+
+        // OTP Verification
+        document.getElementById('otpForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const otp = Array.from(otpInputs).map(input => input.value).join('');
+            
+            if (otp.length === 6) {
+                // In real app, verify OTP with backend
+                // For demo, accept any 6-digit code
+                const tempUserData = JSON.parse(localStorage.getItem('tempUserData') || '{}');
+                
+                // Store user data
+                localStorage.setItem('userData', JSON.stringify(tempUserData));
+                localStorage.setItem('userEmail', tempUserData.email);
+                localStorage.setItem('userPhone', tempUserData.phone);
+                
+                // Clear temp data
+                localStorage.removeItem('tempUserData');
+                
+                alert('OTP verified successfully! Account created.');
+                window.location.href = 'index.html';
+            } else {
+                alert('Please enter the complete 6-digit OTP');
+            }
+        });
+    </script>
+</body>
+</html>

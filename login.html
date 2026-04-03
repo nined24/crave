@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Cravé</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        .auth-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 20px 40px;
+            background: var(--light-mint);
+        }
+
+        .auth-card {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            max-width: 450px;
+            width: 100%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .auth-logo {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .auth-logo .logo-text {
+            background: var(--light-pink);
+            padding: 0.8rem 1.5rem;
+            display: inline-block;
+            border-radius: 4px;
+        }
+
+        .auth-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--gold-yellow);
+            text-align: center;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        .auth-subtitle {
+            text-align: center;
+            color: var(--logo-brown);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--logo-brown);
+            font-weight: 400;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 6px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            color: var(--logo-brown);
+            transition: all 0.3s ease;
+            background: var(--light-mint);
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--gold-yellow);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+        }
+
+        .auth-button {
+            width: 100%;
+            background: white;
+            color: var(--gold-yellow);
+            border: 2px solid var(--gold-yellow);
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+            text-transform: uppercase;
+            margin-top: 1rem;
+        }
+
+        .auth-button:hover {
+            background: var(--gold-yellow);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .auth-link {
+            text-align: center;
+            margin-top: 1.5rem;
+            color: var(--logo-brown);
+            font-size: 0.9rem;
+        }
+
+        .auth-link a {
+            color: var(--gold-yellow);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .auth-link a:hover {
+            color: var(--logo-brown);
+            text-decoration: underline;
+        }
+
+        .forgot-password {
+            text-align: right;
+            margin-top: 0.5rem;
+            margin-bottom: 0;
+        }
+
+        .forgot-password a {
+            color: var(--gold-yellow);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+
+        .forgot-password a:hover {
+            color: var(--logo-brown);
+            text-decoration: underline;
+        }
+
+        .back-home {
+            position: absolute;
+            top: 120px;
+            left: 20px;
+            color: var(--logo-brown);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 300;
+            transition: color 0.3s ease;
+            z-index: 10;
+        }
+
+        .back-home:hover {
+            color: var(--gold-yellow);
+        }
+
+        .form-group-wrapper {
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .auth-container {
+                padding: 100px 15px 30px;
+            }
+
+            .auth-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .auth-title {
+                font-size: 2rem;
+            }
+
+            .back-home {
+                top: 100px;
+                left: 15px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Delivery Banner -->
+    <div class="delivery-banner">
+        DELIVERING ALL OVER MUMBAI
+    </div>
+
+    <a href="index.html" class="back-home">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back to Home
+    </a>
+
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-logo">
+                <div class="logo-text">
+                    <span class="logo-c">C</span>rav<span class="logo-e">é</span>
+                </div>
+            </div>
+            <h1 class="auth-title">Login</h1>
+            <p class="auth-subtitle">Welcome back! Please login to your account.</p>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                
+                <div class="form-group form-group-wrapper">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                
+                <div class="forgot-password">
+                    <a href="forgot-password.html">Forgot Password?</a>
+                </div>
+                
+                <button type="submit" class="auth-button">Login</button>
+            </form>
+            
+            <div class="auth-link">
+                Don't have an account? <a href="signup.html">Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const phone = document.getElementById('phone').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            // Simple validation
+            if (phone && email && password) {
+                // Store login state (in real app, this would be handled by backend)
+                localStorage.setItem('userEmail', email);
+                localStorage.setItem('userPhone', phone);
+                alert('Login successful! Redirecting...');
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+

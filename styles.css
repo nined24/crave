@@ -85,7 +85,23 @@ body {
 .nav-right {
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
     justify-content: flex-end;
+}
+
+.mobile-cart-btn,
+.mobile-login-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .nav-link {
@@ -254,6 +270,31 @@ body {
     background: var(--mint-green);
     color: var(--gold-yellow);
     padding-left: 2rem;
+}
+
+@media (max-width: 968px) {
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background: transparent;
+        margin-top: 0;
+        padding: 0.5rem 0 0.5rem 1.5rem;
+    }
+
+    .dropdown-menu a {
+        padding: 0.5rem 0;
+        color: var(--logo-brown) !important;
+        font-size: 0.9rem;
+    }
+
+    .dropdown-menu a:hover {
+        color: var(--gold-yellow) !important;
+        background: transparent;
+        padding-left: 1.5rem;
+    }
 }
 
 /* Mobile Menu Button */
@@ -426,15 +467,15 @@ body {
 
 .categories-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
     margin-top: 2rem;
 }
 
 .category-card {
     background: linear-gradient(135deg, var(--mint-green) 0%, white 100%);
     border-radius: 8px;
-    padding: 2rem 1.5rem;
+    padding: 1.25rem 1rem;
     text-align: center;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -450,16 +491,51 @@ body {
 }
 
 .category-icon {
-    font-size: 4rem;
-    margin-bottom: 1rem;
+    font-size: 3rem;
+    margin-bottom: 0.75rem;
 }
 
 .category-card h3 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
+    font-size: 1.15rem;
     color: var(--logo-brown);
     font-weight: 400;
     letter-spacing: 1px;
+}
+
+/* Reels Section */
+.reels {
+    padding: 5rem 0;
+    background: var(--bakery-beige);
+    background: linear-gradient(135deg, var(--mint-green) 0%, var(--light-mint) 100%);
+}
+
+.reels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+}
+
+.reel-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem 1rem;
+    text-decoration: none;
+    border-radius: 10px;
+    background: white;
+    border: 1px solid rgba(255, 215, 0, 0.25);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    color: var(--logo-brown);
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 1px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.reel-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold-yellow);
+    box-shadow: 0 10px 25px rgba(255, 215, 0, 0.18);
 }
 
 .category-heading {
@@ -705,20 +781,21 @@ body {
     .nav-container {
         flex-wrap: wrap;
         justify-content: space-between;
+        align-items: center;
+        padding: 0 1rem;
+        position: relative;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+        order: 1;
+        margin-right: 0.5rem;
     }
 
     .nav-left {
-        order: 3;
+        order: 4;
         width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 1rem;
-        margin-top: 1rem;
         display: none;
-    }
-
-    .navbar.mobile-open .nav-left {
-        display: flex;
         flex-direction: column;
         align-items: flex-start;
         padding: 1.5rem;
@@ -727,56 +804,62 @@ body {
         border-radius: 10px;
         margin-top: 1rem;
         box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        gap: 0.5rem;
+    }
+
+    .navbar.mobile-open .nav-left {
+        display: flex;
     }
 
     .nav-right {
-        order: 2;
         flex: 1;
         justify-content: center;
-        margin: 0 auto;
+        order: 2;
     }
 
     .logo {
         justify-content: center;
-        width: 100%;
     }
 
-    .mobile-menu-btn {
+    .logo-text {
+        font-size: 1.5rem;
+        padding: 0.4rem 1rem;
+    }
+
+    .nav-actions {
+        flex: 0;
+        justify-content: flex-end;
+        order: 3;
+        gap: 0.75rem;
+    }
+
+    .mobile-cart-btn {
+        display: flex !important;
+        padding: 0.5rem;
+    }
+
+    .mobile-login-btn {
         display: flex;
-        order: 1;
+        align-items: center;
+        gap: 0.25rem;
+        font-size: 0.9rem;
     }
 
-    .nav-left .icon-btn {
-        order: 10;
-        margin-top: 1rem;
-        width: 100%;
-        justify-content: flex-start;
-        padding: 0.75rem 1rem;
-        background: rgba(255, 255, 255, 0.5);
-        border-radius: 8px;
+    .mobile-login-btn svg {
+        width: 16px;
+        height: 16px;
+        margin-right: 0;
     }
 
-    .dropdown-menu {
-        position: static;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        box-shadow: none;
-        background: transparent;
-        margin-top: 0;
-        padding: 0.5rem 0 0.5rem 1.5rem;
-    }
-
-    .dropdown-menu a {
-        padding: 0.5rem 0;
-        color: white;
+    .login-text {
+        display: none;
     }
 
     .nav-link {
-        font-size: 1rem;
+        font-size: 0.9rem;
         padding: 0.75rem 0;
         width: 100%;
-        color: white;
+        color: var(--logo-brown);
     }
 
     .navbar.mobile-open .nav-link {
@@ -791,7 +874,7 @@ body {
 
 @media (max-width: 768px) {
     .nav-container {
-        padding: 0 1rem;
+        padding: 0 0.75rem;
     }
 
     .delivery-banner {
@@ -801,12 +884,27 @@ body {
 
     .navbar {
         top: 35px;
+        padding: 0.75rem 0;
+    }
+
+    .logo-text {
+        font-size: 1.3rem;
+        padding: 0.35rem 0.8rem;
+    }
+
+    .nav-actions {
+        gap: 0.5rem;
+    }
+
+    .mobile-login-btn {
+        font-size: 0.85rem;
     }
 
     .hero {
         padding-top: 140px;
         min-height: 500px;
     }
+}
 
     .hero-title {
         font-size: 2.5rem;

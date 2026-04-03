@@ -1,0 +1,397 @@
+{
+  "products": [
+    {
+      "id": "sandwich-1",
+      "name": "Nutella Sandwich",
+      "category": "sandwiches",
+      "price": 75,
+      "currency": "INR",
+      "description": "Delicious Nutella filled sandwich",
+      "image": "🥪",
+      "available": true
+    },
+    {
+      "id": "sandwich-2",
+      "name": "Chocolate Sandwich",
+      "category": "sandwiches",
+      "price": 60,
+      "currency": "INR",
+      "description": "Rich chocolate filled sandwich",
+      "image": "🥪",
+      "available": true
+    },
+    {
+      "id": "sandwich-3",
+      "name": "Caramel Sandwich",
+      "category": "sandwiches",
+      "price": 75,
+      "currency": "INR",
+      "description": "Sweet caramel filled sandwich",
+      "image": "🥪",
+      "available": true
+    },
+    {
+      "id": "sandwich-4",
+      "name": "Dulce de Leche",
+      "category": "sandwiches",
+      "price": 90,
+      "currency": "INR",
+      "description": "Traditional caramel milk spread",
+      "image": "🥪",
+      "available": true
+    },
+    {
+      "id": "granola-1",
+      "name": "Rolled Oats Granola with Honey",
+      "category": "granolas",
+      "price": 1600,
+      "currency": "INR",
+      "unit": "per kg",
+      "description": "Premium granola with natural honey",
+      "image": "🥣",
+      "available": true
+    },
+    {
+      "id": "granola-2",
+      "name": "Rolled Oats Chocolate Granola",
+      "category": "granolas",
+      "price": 1600,
+      "currency": "INR",
+      "unit": "per kg",
+      "description": "Chocolate infused granola",
+      "image": "🥣",
+      "available": true
+    },
+    {
+      "id": "granola-3",
+      "name": "Rolled Oats Chocolate Orange Granola",
+      "category": "granolas",
+      "price": 1800,
+      "currency": "INR",
+      "unit": "per kg",
+      "description": "Chocolate and orange flavored granola",
+      "image": "🥣",
+      "available": true
+    },
+    {
+      "id": "granola-4",
+      "name": "Granola",
+      "category": "granolas",
+      "price": 240,
+      "currency": "INR",
+      "weight": "150gms",
+      "description": "Premium granola pack",
+      "image": "🥣",
+      "available": true
+    },
+    {
+      "id": "granola-5",
+      "name": "Chocolate Granola",
+      "category": "granolas",
+      "price": 240,
+      "currency": "INR",
+      "weight": "150gms",
+      "description": "Chocolate flavored granola pack",
+      "image": "🥣",
+      "available": true
+    },
+    {
+      "id": "granola-6",
+      "name": "Orange Granola",
+      "category": "granolas",
+      "price": 270,
+      "currency": "INR",
+      "weight": "150gms",
+      "description": "Orange flavored granola pack",
+      "image": "🥣",
+      "available": true
+    },
+    {
+      "id": "granola-7",
+      "name": "Roasted Royal Crunch",
+      "category": "granolas",
+      "price": 180,
+      "currency": "INR",
+      "weight": "150gms",
+      "description": "Crunchy roasted granola",
+      "image": "🥣",
+      "available": true
+    },
+    {
+      "id": "chocolate-1",
+      "name": "Dutch Truffle",
+      "category": "chocolates",
+      "price": null,
+      "currency": "INR",
+      "description": "Best pick - Rich Dutch chocolate truffle",
+      "image": "🍫",
+      "bestPick": true,
+      "available": true
+    },
+    {
+      "id": "chocolate-2",
+      "name": "Chocolate Orange",
+      "category": "chocolates",
+      "price": null,
+      "currency": "INR",
+      "description": "Best pick - Orange infused chocolate",
+      "image": "🍫",
+      "bestPick": true,
+      "available": true
+    },
+    {
+      "id": "chocolate-3",
+      "name": "Chocolate Hazelnut",
+      "category": "chocolates",
+      "price": null,
+      "currency": "INR",
+      "description": "Premium hazelnut chocolate",
+      "image": "🍫",
+      "available": true
+    },
+    {
+      "id": "chocolate-4",
+      "name": "Chocolate Chip",
+      "category": "chocolates",
+      "price": null,
+      "currency": "INR",
+      "description": "Classic chocolate chip",
+      "image": "🍫",
+      "available": true
+    },
+    {
+      "id": "chocolate-5",
+      "name": "Black Forest",
+      "category": "chocolates",
+      "price": null,
+      "currency": "INR",
+      "description": "Rich black forest chocolate",
+      "image": "🍫",
+      "available": true
+    },
+    {
+      "id": "chocolate-6",
+      "name": "Coffee Chocolate",
+      "category": "chocolates",
+      "price": null,
+      "currency": "INR",
+      "description": "Coffee infused chocolate",
+      "image": "🍫",
+      "available": true
+    },
+    {
+      "id": "chocolate-7",
+      "name": "Chocolate Mousse",
+      "category": "chocolates",
+      "price": null,
+      "currency": "INR",
+      "description": "Best pick - Creamy chocolate mousse",
+      "image": "🍫",
+      "bestPick": true,
+      "available": true
+    },
+    {
+      "id": "cake-1",
+      "name": "Butterscotch Cake",
+      "category": "cakes",
+      "price": null,
+      "currency": "INR",
+      "description": "Classic butterscotch flavor",
+      "image": "🎂",
+      "available": true
+    },
+    {
+      "id": "cake-2",
+      "name": "Pistachio Rose Cake",
+      "category": "cakes",
+      "price": null,
+      "currency": "INR",
+      "description": "Elegant pistachio and rose",
+      "image": "🎂",
+      "available": true
+    },
+    {
+      "id": "cake-3",
+      "name": "Blueberry Cream Cake",
+      "category": "cakes",
+      "price": null,
+      "currency": "INR",
+      "description": "Fresh blueberry with cream",
+      "image": "🎂",
+      "available": true
+    },
+    {
+      "id": "cake-4",
+      "name": "Strawberry Cream Cake",
+      "category": "cakes",
+      "price": null,
+      "currency": "INR",
+      "description": "Fresh strawberry with cream",
+      "image": "🎂",
+      "available": true
+    },
+    {
+      "id": "cake-5",
+      "name": "Mix Fruit Cake",
+      "category": "cakes",
+      "price": null,
+      "currency": "INR",
+      "description": "Assorted fresh fruits",
+      "image": "🎂",
+      "available": true
+    },
+    {
+      "id": "cake-6",
+      "name": "Ras Malai Cake",
+      "category": "cakes",
+      "price": null,
+      "currency": "INR",
+      "description": "Traditional Indian flavor",
+      "image": "🎂",
+      "available": true
+    },
+    {
+      "id": "cake-7",
+      "name": "Lotus Biscoff Cake",
+      "category": "cakes",
+      "price": null,
+      "currency": "INR",
+      "description": "Popular Lotus Biscoff flavor",
+      "image": "🎂",
+      "available": true
+    },
+    {
+      "id": "cake-8",
+      "name": "Cream Cheese Flavour",
+      "category": "cakes",
+      "price": null,
+      "currency": "INR",
+      "description": "Rich cream cheese cake",
+      "image": "🎂",
+      "available": true
+    },
+    {
+      "id": "cake-9",
+      "name": "Red Velvet Cake",
+      "category": "cakes",
+      "price": null,
+      "currency": "INR",
+      "description": "Classic red velvet",
+      "image": "🎂",
+      "available": true
+    },
+    {
+      "id": "cake-10",
+      "name": "Blueberry Cake",
+      "category": "cakes",
+      "price": null,
+      "currency": "INR",
+      "description": "Fresh blueberry cake",
+      "image": "🎂",
+      "available": true
+    },
+    {
+      "id": "cake-11",
+      "name": "Strawberry Cake",
+      "category": "cakes",
+      "price": null,
+      "currency": "INR",
+      "description": "Fresh strawberry cake",
+      "image": "🎂",
+      "available": true
+    },
+    {
+      "id": "cheesecake-1",
+      "name": "Blueberry Cheesecake",
+      "category": "cheesecakes",
+      "price": null,
+      "currency": "INR",
+      "description": "Blueberry on biscuit base",
+      "image": "🧀",
+      "available": true
+    },
+    {
+      "id": "cheesecake-2",
+      "name": "Strawberry Cheesecake",
+      "category": "cheesecakes",
+      "price": null,
+      "currency": "INR",
+      "description": "Strawberry on biscuit base",
+      "image": "🧀",
+      "available": true
+    },
+    {
+      "id": "cheesecake-3",
+      "name": "Lotus Biscoff Cheesecake",
+      "category": "cheesecakes",
+      "price": null,
+      "currency": "INR",
+      "description": "Lotus Biscoff on biscuit base",
+      "image": "🧀",
+      "available": true
+    },
+    {
+      "id": "cheesecake-4",
+      "name": "Caramel Cheesecake",
+      "category": "cheesecakes",
+      "price": null,
+      "currency": "INR",
+      "description": "Caramel on biscuit base",
+      "image": "🧀",
+      "available": true
+    },
+    {
+      "id": "special-1",
+      "name": "Eggless Tiramisu with Ladyfinger",
+      "category": "special",
+      "price": null,
+      "currency": "INR",
+      "description": "Premium eggless tiramisu",
+      "image": "⭐",
+      "available": true
+    }
+  ],
+  "categories": [
+    {
+      "id": "sandwiches",
+      "name": "Sandwiches",
+      "icon": "🥪",
+      "description": "Delicious filled sandwiches"
+    },
+    {
+      "id": "granolas",
+      "name": "Granolas",
+      "icon": "🥣",
+      "description": "Premium granola varieties"
+    },
+    {
+      "id": "chocolates",
+      "name": "Chocolates",
+      "icon": "🍫",
+      "description": "Gourmet chocolate selections"
+    },
+    {
+      "id": "cakes",
+      "name": "Cakes",
+      "icon": "🎂",
+      "description": "Artisan cakes for every occasion"
+    },
+    {
+      "id": "cheesecakes",
+      "name": "Cheesecakes",
+      "icon": "🧀",
+      "description": "Creamy cheesecakes with biscuit base"
+    },
+    {
+      "id": "special",
+      "name": "Special Edition",
+      "icon": "⭐",
+      "description": "Limited edition specialties"
+    }
+  ],
+  "users": [],
+  "orders": []
+}
+
+
+
